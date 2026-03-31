@@ -1,27 +1,24 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "defines.h"
 
-#include "Defines.h"
+struct Player {
+    float x, y;
+    int lives;
 
-struct Player
-{
-	float LegsStartX() { return x + 24; }
-
-	float LegsEndX() { return x + 64; }
-
-	float LegsY() { return y + 73; }
-
-	float x, y; // virsutinio kairiojo kampo koordinates
+    // Ðiø funkcijø ieðko tavo utils.cpp (C2039 klaidos)
+    float LegsStartX() { return x + 25.0f; }
+    float LegsEndX() { return x + 55.0f; }
+    float LegsY() { return y + 73.0f; }
 };
 
-struct Plate
-{
-	float StartX() { return x; }
+struct Plate {
+    float x, y;
+    int type;
 
-	float EndX() { return x + PLATES_WIDTH; }
-
-	float TopY() { return y; }
-
-	float BottomY() { return y + PLATES_HEIGHT; }
-
-	float x, y; // virsutinio kairiojo kampo koordinates
+    // Ðiø funkcijø ieðko tavo utils.cpp (C2039 klaidos)
+    float StartX() { return x; }
+    float EndX() { return x + 60.0f; }
+    float TopY() { return y; }
+    float BottomY() { return y + 100.0f; }
 };

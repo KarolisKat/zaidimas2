@@ -1,17 +1,19 @@
-#include "Utils.h"
-#include "Objects.h"
+#include "utils.h"
 
-bool utils::IsBetween(float val, float rangeB, float rangeE)
-{
-	return val > rangeB && val < rangeE;
-}
+namespace utils {
+    // Patikriname, ar skaièius telpa á rëmus
+    bool IsBetween(float value, float min, float max) {
+        return (value >= min && value <= max);
+    }
 
-bool utils::InOnPlate(Player &player, Plate &plate)
-{
-	const bool betweenX = IsBetween(player.LegsStartX(), plate.StartX(), plate.EndX()) ||
-		IsBetween(player.LegsEndX(), plate.StartX(), plate.EndX());
+    bool CheckCollision(Player& player, Plate& plate) {
+        // Tikriname X aðá (ar kojos lieèia kaktusà horizontaliai)
+        bool xOverlap = IsBetween(player.LegsStartX(), plate.StartX(), plate.EndX()) ||
+            IsBetween(player.LegsEndX(), plate.StartX(), plate.EndX());
 
-	const bool betweenY = IsBetween(player.LegsY(), plate.TopY(), plate.BottomY());
+        // Tikriname Y aðá (ar kojos yra kaktuso aukðtyje)
+        bool yOverlap = IsBetween(player.LegsY(), plate.TopY(), plate.BottomY());
 
-	return betweenX && betweenY;
+        return xOverlap && yOverlap;
+    }
 }

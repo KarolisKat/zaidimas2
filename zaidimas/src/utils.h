@@ -1,10 +1,10 @@
 #pragma once
+#include "objects.h"
 
-struct Player;
-struct Plate;
+namespace utils {
+    // Patikriname, ar skaièius yra tarp dviejø ribø
+    bool IsBetween(float value, float min, float max);
 
-namespace utils
-{
-	bool IsBetween(float val, float rangeB, float rangeE);
-	bool InOnPlate(Player &player, Plate &plate);
+    // Pagrindinë susidûrimo logika, kurià naudojai anksèiau
+    bool CheckCollision(Player& player, Plate& plate);
 }
