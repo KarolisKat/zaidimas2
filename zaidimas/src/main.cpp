@@ -53,7 +53,6 @@ public:
     }
 
     void update(Plate plates[], float currentSpeed, float playerX) {
-        // --- ANIMACIJOS LOGIKA ---
         if (animClock.getElapsedTime().asSeconds() > 0.12f) {
             currentFrame = (currentFrame + 1) % 2; // Perjungiam tarp 0 ir 1
 
