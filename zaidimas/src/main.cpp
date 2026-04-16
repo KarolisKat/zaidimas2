@@ -12,7 +12,7 @@
 using namespace sf;
 using namespace std;
 
-// Funkcija kaktuso aukðèiui nustatyti naudojant nuorodas
+// Funkcija kaktuso aukðèiui nustatyti naudojant nuoroda
 void SetCactusY(Plate& cactus, Texture tCactus[]) {
     float cactusHeight = static_cast<float>(tCactus[cactus.type].getSize().y);
     cactus.y = GROUND_Y - cactusHeight;
